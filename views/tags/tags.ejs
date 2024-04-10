@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('../partials/head.ejs'); %>
+
+    <title>Links About <%- word %> | gcamapkfor.com</title>
+    <meta name="keyword" content="<%- word %>" />
+    <meta name="description" content="This page provide every links about <%- word %>.">
+    
+    <meta property="og:title" content="Links About <%- word %> | gcamapkfor.com" />
+    <meta property="og:url" content="https://gcamapkfor.com/tag/<%- word %>?page=1" />
+    <meta property="og:description" content="This page provide every links about <%- word %>." />
+    <meta property="og:site_name" content="gcamapkfor.com" />
+
+   
+    <%- include('../partials/css.ejs'); %>
+
+
+    <style type="text/css">
+
+        .pagination {
+            width: 100%;
+            height: auto;
+            margin-top: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: rgb(196, 196, 196);
+        }
+
+
+          </style>
+
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+
+    <div class="area">
+        <div class="word-search">
+            
+            <div class="home-page-header-title">
+                Search for Solutions
+              </div>
+            <form method="get" action="">
+                <label>
+                    <input type="text" name="query" id="query" value="<%= word.replace(/-/g, ' ') %>" placeholder="Type...">
+                </label>
+                <button>Search</button>
+            </form>
+        </div>
+
+
+
+        
+
+
+
+
+        <!--meaning output section-->
+        <div class="main">
+
+            
+            <div id="related_links" class="outputs">
+
+                <h4>Links About <%- word %></h4>
+
+                <% for (let element of info.data) {%>
+                    <% if (element.url.includes(word)) { %>
+                        <br>
+                        <%- `<a class="links" href="/${element.brand.toLowerCase()}/${element.url}">Google Camara for ${element.phone_title}</a> <br>` %>
+                    <% } %>
+                <% } %>
+
+
+                <div id="goback">
+                    <br>
+                    <%- `<a href="/tag/${word}?page=1">Back to First Page</a>` %>
+                </div>
+
+
+                <div class="pagination">
+                    <% for (let no of page_no) {%>
+                        <div class="numbers">
+                            <%- `<a href="/tag/${word}?page=${no}">${no}</a> <br>` %>
+                        </div>
+
+                    <% } %>
+                </div>
+
+            </div>
+
+
+            <script>
+                const info22 = document.querySelectorAll(".links");
+                if (info22.length < 1){
+                    document.getElementById("goback").style.displey = "block"; 
+                }else{
+                    document.getElementById("goback").style.displey = "none"; 
+                }
+
+            </script>  
+  
+ 
+
+
+            <!-- below main dev ends -->
+        </div>
+
+
+        <aside>
+            <div class="box">
+                <div class="head">
+                    <h3>Tags</h3>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li> <a href="/tag/flask?page=1">Flask</a> </li>
+                        <li> <a href="/tag/sqlalchemy?page=1">SQLalchemy</a> </li>
+                        <li> <a href="/tag/json?page=1">JSON</a> </li>
+                        <li> <a href="/tag/scrapy?page=1">Scrapy</a> </li>
+                        <li> <a href="/tag/pip?page=1">pip</a> </li>
+                        <li> <a href="/tag/installation?page=1">Installation</a> </li>
+                        <li> <a href="/tag/virtualenv?page=1">Virtualenv</a> </li>
+                        <li> <a href="/tag/ide?page=1">IDE</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+
+
+
+        <%- include('../partials/footer.ejs'); %>
+
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle() {
+            var test = document.getElementById("navbar");
+            if (test.className == "hidden") {
+                test.className = "show";
+            } else {
+                test.className = "hidden";
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
+

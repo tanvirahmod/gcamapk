@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+    <%- include('../partials/head.ejs'); %>
+
+    <title><%= info.brand %> | gcamapkfor.com</title>
+    <meta name="keyword" content="Solution of, <%= info.brand %> " />
+    <meta name="description" content="'<%= info.brand %>' everything explaind here about this. You can get alternative solutions also.">
+    
+    <meta property="og:title" content="<%= info.brand %> | gcamapkfor.com" />
+    <meta property="og:url" content="https://gcamapkfor.com/samsung/<%- info.phone_title %>" />
+    <meta property="og:description" content="'<%= info.brand %>' everything explaind here about this. You can get alternative solutions also." />
+    <meta property="og:site_name" content="gcamapkfor.com" />
+
+    <link rel="canonical" href="https://gcamapkfor.com/samsung/<%- info.phone_title %>">
+
+   <%- include('../partials/css.ejs'); %>
+
+   <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://gcamapkfor.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://gcamapkfor.com/samsung/{search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+
+    <div class="area">
+        <div class="word-search">
+            
+            <div class="home-page-header-title">
+                Search Python Related Solutions
+              </div>
+            <form method="get" action="">
+                <label>
+                    <input type="text" name="query" id="query" placeholder="Type Word...">
+                </label>
+                <button>Search</button>
+            </form>
+        </div>
+
+        <!--meaning output section-->
+        <div class="main">
+            <h1 class="outputs" style="margin-bottom: 0px; padding-bottom: 0px;">Download Google Camera for <%= info.phone_title %> | GCam Port APK</h1>
+            <div id="answer_one" class="meaning outputs">
+                <img style="max-width: 100%; height: auto;" src="/gcam-thumb.jpg" alt="screen shot of GCam" class="responsive">
+                <p><%= info.brand %> has announced <%= info.phone_title %> in 
+                    
+                    <% if(info.release_date){%>
+                        <%= info.release_date.split("Status")[0].replace(/Launch|Announced/g, ''); %>
+                    <% } %>
+
+                    <% if(!info.release_date.includes("Discontinued")){%>
+                        <% if(!info.release_date.includes("Coming soon")){%>
+                            and released in <%= info.release_date.split("Status")[1].split("Released ")[1]; %>
+                        <% } %>
+                    <% } %>
+                    
+                    as part of its Galaxy series. If you have a <%= info.phone_title %>, you can now download and install the latest working port of Google Camera (GCam). The Google Camera (<%= gcam_version %>) has been made possible thanks to developers such as <%= developers %>.</p>
+                    
+                    <p>The latest Google Camera port for the <%= info.phone_title %> is <%= gcam_version %>. This version was released by Google on Android <%- android_verisons %>, and now you can install it on the <%= info.phone_title %>. Google Camera (<%= gcam_version %>) for the <%= info.phone_title %> comes with a number of features, which are</p>
+                    <ul>
+                        <%- features %>
+                    </ul>
+                    <div style="background-color: #e9e9e9; padding: 6px; margin-top: 10px; margin-bottom: 5px;">
+                        <p><b><%= gcam_version %> is the most compatible Google Camera mod based on the Android <%- android_verisons %> camera app. The important features of the app are only available on Pixel devices. Developers have done an amazing job to make the app available on many Android devices.</b></p>
+                    </div>
+                    <br>
+                    <h2>Is GCam (Google Camera) Available for <%= info.phone_title %>?</h2>
+                    <p>
+                    To know <%= info.phone_title %> is compatible or not for Google Camera let's see what kind of Camera, Chipset and Android version this mobile has before downloading Google Camera or GCam APK</p>
+                    <!-- rear camaras -->
+                <div style="background-color: #e9e9e9; padding: 6px; margin-top: 5px; margin-bottom: 5px;">
+                    <b>Main Rear Camera:</b>
+                    It has 
+                    <% if(info.main_camera.includes("Single")){%>
+                        rear <%= info.main_camera.replace("_x000D_","").replace("(Main Camera),","").replace("(Single)"," single camera, which is a ").replace("and","") %> sensor
+                    <% } %>
+
+                    <% if(!info.main_camera.includes("Single")){%>
+                        rear <%= info.main_camera.replace("(Main Camera),","").replace("(Dual),"," dual cameras, which are ").replace("(Triple),"," triple cameras, which are ").replace("(Quad),"," quad cameras, which are ").replace("(Penta),"," penta cameras, which are ") %> sensors.
+                    <% } %>
+                </div>
+                    <!-- front camara -->
+                <div style="background-color: #e9e9e9; padding: 6px; margin-top: 5px; margin-bottom: 5px;">
+                        <b>Front Selfie Camera:</b>
+                    In the front 
+                    <% if(info.selfie_camera.includes("Single")){%>
+                         it has a <%= info.selfie_camera.replace("_x000D_","").replace("(Selfie camera),","").replace("(Single)"," single camera, which is a ").replace("and","") %> sensor.
+                    <% } %>
+
+                    <% if(!info.selfie_camera.includes("Single")){%>
+                        it has <%= info.selfie_camera.replace("(Selfie camera),","").replace("(Dual),"," dual cameras, which are ") %> sensors.
+                    <% } %>
+                </div>
+                    <!-- Chipset -->
+                <% if(info.chipset){%>
+                    <div style="background-color: #e9e9e9; padding: 6px; margin-top: 5px; margin-bottom: 5px;">
+                        <b>Chipset:</b>
+                        <%- info.chipset.replace("Chipset\n","").replace("\n","<br>or ") %>
+                    </div>
+                <% } %>
+
+                <% if(info.android_version){%>
+                    <div style="background-color: #e9e9e9; padding: 6px; margin-top: 5px; margin-bottom: 5px;">
+                        <b>Android Version:</b>
+                        <%- info.android_version.split("(")[0] %>
+                    </div>
+                <% } %>
+
+                <div style="background-color: #e9e9e9; padding: 6px; margin-top: 5px; margin-bottom: 5px;">
+                    <b>Display:</b>
+                    <% if(info.display_size){%>
+                        a <%= info.display_size.replace("Size","") %> screen
+                    <% } %>
+
+                    <% if(info.display_resolution){%>
+                        that has <%= info.display_resolution.replace("Size","") %>
+                    <% } %>
+
+                    <% if(info.display_type){%>
+                        and the type of the display is <%= info.display_type.replace("Type","").replace("Display","") %>
+                    <% } %>. 
+                </div>
+
+                <p>
+                    The camera system, chipset and with Android <%= android_verisons %> you can easily install GCam apk on your <%= info.phone_title %>. 
+                </p>
+                <p>Below you can download all GCam files that work with the <%= info.phone_title %>. According to the developers, the apps should work on Android <%= android_verisons %> builds.</p>
+                <br>
+                <h2>Download Google Camera (<%= gcam_version %> APK) for <%= info.phone_title %></h2>
+                <p><%= info.phone_title %> has Android version <%= android_verisons %> now.
+                <% if(android_verisons >= 12){%>
+                    <%- include('../gcams/android12plus.ejs'); %>
+                <% } %>
+                <% if(android_verisons >= 11 && android_verisons < 12){%>
+                    Thanks to developers <%= developers %> for creating GCam APK mod for this Android version and <%= info.phone_title %> </p>
+                    <%- include('../gcams/android11.ejs'); %>
+                <% } %>
+                <% if(android_verisons >= 10 && android_verisons < 11){%>
+                    Thanks to developers <%= developers %> for creating GCam APK mod for this Android version and <%= info.phone_title %> </p>
+                    <%- include('../gcams/android10.ejs'); %>
+                <% } %>
+                <% if(android_verisons >= 9 && android_verisons < 10){%>
+                    Thanks to developers <%= developers %> for creating GCam APK mod for this Android version and <%= info.phone_title %> </p>
+                    <%- include('../gcams/android9.ejs'); %>
+                <% } %>
+                <% if(android_verisons >= 8 && android_verisons < 9){%>
+                    Thanks to developers <%= developers %> for creating GCam APK mod for this Android version and <%= info.phone_title %> </p>
+                    <%- include('../gcams/android8.ejs'); %>
+                <% } %>
+                <% if(android_verisons >= 7 && android_verisons < 8){%>
+                    Thanks to developers <%= developers %> for creating GCam APK mod for this Android version and <%= info.phone_title %> </p>
+                    <%- include('../gcams/android7.ejs'); %>
+                <% } %>
+                <% if(android_verisons >= 6 && android_verisons < 7){%>
+                    Thanks to developers <%= developers %> for creating GCam APK mod for this Android version and <%= info.phone_title %> </p>
+                    <%- include('../gcams/android6.ejs'); %>
+                <% } %>
+                <% if(android_verisons < 6){%>
+                    Thanks to developers <%= developers %> for creating GCam APK mod for this Android version and <%= info.phone_title %> </p>
+                    <%- include('../gcams/android1to5.ejs'); %>
+                <% } %>
+                <br>
+                <h3>How To Install Google Camera GCam on the <%= info.phone_title %></h3>
+                <p>As we have mentioned above, there are multiple variants of Google Camera for <%= info.phone_title %>. Every variants work pretty well, but one might better than the other. The only way to find out which one works best for your phone it to install them all and try them.</p>
+                <p>Watch this video tutorial i created to guide you how to download and install GCam on your phone.</p>
+                <br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vMKqE7Xwb18?si=H4ZPMGsKXzucM4cC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <br><br>
+                <ol>
+                    <li>Download the APK file of the camera app from the download links above and move all of them to the internal storage of your phone.</li>
+                    <li>Take your phone and go to <b>File Manager</b>, and go to the folder where you moved the APK file.</li>
+                    <li>Tap on the file to install it. If the installation process does not start, the phone will ask you to <b>allow unknown sources</b>. Simply tap on <b>allow</b>.</li>
+                    <li>Click on <b>Install</b> one more time, and the app will be installed shortly.</li>
+                    <li>When the phone says the <b>app has been successfully installed</b>, go to the app drawer and tap on Google Camera to launch it.</li>
+                </ol>
+                <br>
+                <h3>How to use Google Camera on <%= info.phone_title %></h3>
+                <br>
+                <img style="max-width: 100%; height: auto;" src="/gcam-8-screenshot.jpg" alt="screen shot of GCam" class="responsive">
+                <p>First, you have to make sure that you have properly installed the app on your phone and that it doesn't crash. Go to the app drawer and tap on the Google Camera icon. If the app opens and the camera shows a working viewfinder, then you have a good working version of the app installed.</p>
+
+                <p>You can now use every features GCam has. To enable these options, open the camera, go to Settings, and tap on Advanced. There you have the option to enable your preferred features.</p>
+            </div>
+
+
+            
+            <div id="related_links" class="outputs">
+
+                <h4>Related Links</h4>
+                <% for (let element of check) {%>
+                    <% if (element.brand.includes(info.brand.split(",")[0]) || element.brand.includes(info.brand.split(",")[1]) || element.brand.includes(info.brand.split(",")[2])) { %>
+                        <br>
+                        <%- `<a href="http://localhost:3000/samsung/${element.url}">Google Camera for ${element.phone_title.replaceAll("-"," ")}</a> <br>` %>
+                    <% } %>
+                <% } %>
+
+            </div>
+
+        </div>
+
+
+        <aside>
+            <div class="box">
+                <div class="head">
+                    <h3>Tags</h3>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li> <a href="https://gcamapkfor.com/tag/flask?page=1">Flask</a> </li>
+                        <li> <a href="https://gcamapkfor.com/tag/sqlalchemy?page=1">SQLalchemy</a> </li>
+                        <li> <a href="https://gcamapkfor.com/tag/json?page=1">JSON</a> </li>
+                        <li> <a href="https://gcamapkfor.com/tag/scrapy?page=1">Scrapy</a> </li>
+                        <li> <a href="https://gcamapkfor.com/tag/pip?page=1">pip</a> </li>
+                        <li> <a href="https://gcamapkfor.com/tag/installation?page=1">Installation</a> </li>
+                        <li> <a href="https://gcamapkfor.com/tag/virtualenv?page=1">Virtualenv</a> </li>
+                        <li> <a href="https://gcamapkfor.com/tag/ide?page=1">IDE</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+
+
+
+        <%- include('../partials/footer.ejs'); %>
+
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle() {
+            var test = document.getElementById("navbar");
+            if (test.className == "hidden") {
+                test.className = "show";
+            } else {
+                test.className = "hidden";
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
+

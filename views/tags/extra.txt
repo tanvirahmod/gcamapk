@@ -1,0 +1,11 @@
+                <% for (let element of info) {%>
+                    <% if (element.tags.includes(word)) { %>
+                        <br>
+                        <%- `<a class="links" href="http://localhost:3000/python/${element.url}">${element.header}</a> <br>` %>
+                    <% } %>
+
+                    <% if (word == "python") { %>
+                        <br>
+                        <%- `<a id="links" href="http://localhost:3000/python/${element.url}">${element.header}</a> <br>` %>
+                    <% } %>
+                <% } %>
