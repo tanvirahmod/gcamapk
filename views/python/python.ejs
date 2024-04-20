@@ -5,16 +5,17 @@
   
     <%- include('../partials/head.ejs'); %>
 
-    <title><%= info.brand %> | gcamapkfor.com</title>
-    <meta name="keyword" content="Solution of, <%= info.brand %> " />
-    <meta name="description" content="'<%= info.brand %>' everything explaind here about this. You can get alternative solutions also.">
+    <title>Download Google Camera for <%= info.phone_title %> | GCam Port APK from apk-news.com</title>
+    <meta name="keyword" content="GCam,GCam APK,GCam Port,GCam Port APK, GCam for <%= info.brand %>, Google Camera APK" />
+    <meta name="description" content="Download compatible Google Camera for <%= info.phone_title %> from this page. Download link of GCam Port APK for <%= info.phone_title %> is given in this page.">
     
-    <meta property="og:title" content="<%= info.brand %> | gcamapkfor.com" />
-    <meta property="og:url" content="https://gcamapkfor.com/samsung/<%- info.phone_title %>" />
-    <meta property="og:description" content="'<%= info.brand %>' everything explaind here about this. You can get alternative solutions also." />
-    <meta property="og:site_name" content="gcamapkfor.com" />
+    <meta property="og:title" content="Download Google Camera for <%= info.phone_title %> | GCam Port APK from apk-news.com" />
+    <meta property="og:url" content="https://apk-news.com/samsung/<%- info.phone_title %>" />
+    <meta property="og:description" content="Download compatible Google Camera for <%= info.phone_title %> from this page. Download link of GCam Port APK for <%= info.phone_title %> is given in this page." />
+    <meta property="og:image" content="/gcam-thumb.jpg" />
+    <meta property="og:site_name" content="apk-news.com" />
 
-    <link rel="canonical" href="https://gcamapkfor.com/samsung/<%- info.phone_title %>">
+    <link rel="canonical" href="https://apk-news.com/<%= info.brand.toLowerCase() %>/<%- info.url %>">
 
    <%- include('../partials/css.ejs'); %>
 
@@ -22,10 +23,10 @@
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      "url": "https://gcamapkfor.com/",
+      "url": "https://apk-news.com/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://gcamapkfor.com/samsung/{search_term_string}",
+        "target": "https://apk-news.com/<%= info.brand.toLowerCase() %>/{search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -40,11 +41,11 @@
         <div class="word-search">
             
             <div class="home-page-header-title">
-                Search Python Related Solutions
+                Search APK You Want.
               </div>
             <form method="get" action="">
                 <label>
-                    <input type="text" name="query" id="query" placeholder="Type Word...">
+                    <input type="text" name="query" id="query" placeholder="Type Here">
                 </label>
                 <button>Search</button>
             </form>
@@ -67,7 +68,7 @@
                         <% } %>
                     <% } %>
                     
-                    as part of its Galaxy series. If you have a <%= info.phone_title %>, you can now download and install the latest working port of Google Camera (GCam). The Google Camera (<%= gcam_version %>) has been made possible thanks to developers such as <%= developers %>.</p>
+                    as part of its Android smart phone series. If you have a <%= info.phone_title %>, you can now download and install the latest working port of Google Camera (GCam). The Google Camera (<%= gcam_version %>) has been made possible thanks to developers such as <%= developers %>.</p>
                     
                     <p>The latest Google Camera port for the <%= info.phone_title %> is <%= gcam_version %>. This version was released by Google on Android <%- android_verisons %>, and now you can install it on the <%= info.phone_title %>. Google Camera (<%= gcam_version %>) for the <%= info.phone_title %> comes with a number of features, which are</p>
                     <ul>
@@ -100,9 +101,16 @@
                          it has a <%= info.selfie_camera.replace("_x000D_","").replace("(Selfie camera),","").replace("(Single)"," single camera, which is a ").replace("and","") %> sensor.
                     <% } %>
 
-                    <% if(!info.selfie_camera.includes("Single")){%>
-                        it has <%= info.selfie_camera.replace("(Selfie camera),","").replace("(Dual),"," dual cameras, which are ") %> sensors.
+                    <% if(!info.selfie_camera.includes("uses main camera")){%>
+                        <% if(!info.selfie_camera.includes("Single")){%>
+                            it has <%= info.selfie_camera.replace("(Selfie camera),","").replace("(Dual),"," dual cameras, which are ") %> sensors.
+                        <% } %>
                     <% } %>
+
+                    <% if(info.selfie_camera.includes("uses main camera")){%>
+                        no selfie camera.
+                    <% } %>
+
                 </div>
                     <!-- Chipset -->
                 <% if(info.chipset){%>
@@ -199,16 +207,20 @@
             
             <div id="related_links" class="outputs">
 
-                <h4>Related Links</h4>
+                <h4>GCam for Other <%= info.brand %> Phones</h4>
                 <% for (let element of check) {%>
                     <% if (element.brand.includes(info.brand.split(",")[0]) || element.brand.includes(info.brand.split(",")[1]) || element.brand.includes(info.brand.split(",")[2])) { %>
                         <br>
-                        <%- `<a href="http://localhost:3000/samsung/${element.url}">Google Camera for ${element.phone_title.replaceAll("-"," ")}</a> <br>` %>
+                        <%- `<a href="/${element.brand.toLowerCase()}/${element.url}">Google Camera for ${element.phone_title.replaceAll("-"," ")}</a> <br>` %>
                     <% } %>
                 <% } %>
 
             </div>
-
+        <div class="outputs">
+            <h4>Conclusion</h4>
+            <p>Google Camera gives excellent still photo output in any lighting condition and weather. so if you love phtography this is the must have app for you. As Google Camera does not come with <%= info.brand %> phones, So you need to download it. this is why in this article we gave you the best GCam APK for your <%= info.phone_title %>. But when it comes to videography <%= info.phone_title %>'s default camera app is good enough.</p>
+        </div>
+        
         </div>
 
 
@@ -219,14 +231,7 @@
                 </div>
                 <div class="content">
                     <ul>
-                        <li> <a href="https://gcamapkfor.com/tag/flask?page=1">Flask</a> </li>
-                        <li> <a href="https://gcamapkfor.com/tag/sqlalchemy?page=1">SQLalchemy</a> </li>
-                        <li> <a href="https://gcamapkfor.com/tag/json?page=1">JSON</a> </li>
-                        <li> <a href="https://gcamapkfor.com/tag/scrapy?page=1">Scrapy</a> </li>
-                        <li> <a href="https://gcamapkfor.com/tag/pip?page=1">pip</a> </li>
-                        <li> <a href="https://gcamapkfor.com/tag/installation?page=1">Installation</a> </li>
-                        <li> <a href="https://gcamapkfor.com/tag/virtualenv?page=1">Virtualenv</a> </li>
-                        <li> <a href="https://gcamapkfor.com/tag/ide?page=1">IDE</a> </li>
+                        <li> <a href="/<%= info.brand.toLowerCase() %>">Gcam for <%= info.brand.toLowerCase() %></a> </li>
                     </ul>
                 </div>
             </div>

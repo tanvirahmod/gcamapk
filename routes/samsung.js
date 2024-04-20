@@ -7,14 +7,15 @@ const db = require("../db/table_data")
 router.get('/', async(req, res) => {
     let qu = req.query.query
     let brandName = req.baseUrl.substring(1)
-    brandName = brandName.replace(brandName[0],brandName[0].toLocaleUpperCase())
+    brandName = brandName.replace(brandName[0],brandName[0].toLocaleUpperCase()).replace("Sony-xperia","Sony-Xperia").replace("Lg","LG").replace("Zte","ZTE").replace("Htc","HTC").replace("Tcl","TCL")
+
     if (qu) {
         return res.redirect(`/search/${qu.replace(/\s+$/, '').toLowerCase()}?page=1`);
     }
     const getAllBrand = await db.getAll(brandName);
-
+    console.log(getAllBrand)
     if(getAllBrand.length > 0){
-        res.render('python/python_home')
+        res.render('python/python_home', { allBrandName: getAllBrand, brandName:brandName})
     }else{
         return res.redirect(`not-found/404`);
     }
@@ -77,11 +78,8 @@ router.get('/:input', async (req, res) => {
     } else {
         return res.redirect(`not-found/404`);
     }
-
     // res.status(200).json({python_doc})
 })
-
-
 
 
 // not found 404 page
@@ -92,6 +90,4 @@ router.get('/not-found/404', (req, res) => {
     }
     res.render('python/not_found')
 })
-
-
 module.exports = router

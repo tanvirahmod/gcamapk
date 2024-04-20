@@ -33,8 +33,8 @@ app.get('/terms-and-conditions', (req, res) => {
     res.render('otherPages/terms_and_conditions')
   })
   
-app.get('/disclaimer', (req, res) => {
-    res.render('otherPages/disclaimer')
+app.get('/copyright', (req, res) => {
+    res.render('otherPages/copyright')
   })
   
 app.get('/contact', (req, res) => {
@@ -49,12 +49,18 @@ app.get('/sitemap.xml', async function(req, res, next){
   })
   
 
-
-
 app.use('/robots.txt', function (req, res, next) {
     res.type('text/plain')
     res.send("User-agent: *\nDisallow: /admin/\nDisallow: /login/\nDisallow: /logout/");
 });
+
+app.get('/gcam-faq', (req, res) => {
+  let qu = req.query.query
+  if (qu) {
+      return res.redirect(`/search/${qu.replace(/\s+$/, '').toLowerCase()}?page=1`);
+  }
+  res.render('faq-pages/gcam-faq')
+})
 
 app.use('/:brand', samsungRoutes)
 
@@ -74,7 +80,7 @@ app.use(function(req, res, next) {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3006;
 app.listen(PORT, () => {
     console.log(`Listening on port http://localhost:${PORT}`);
 })

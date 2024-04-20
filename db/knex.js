@@ -14,7 +14,7 @@ const connectedKnex = knex({
 //     connection: {
 //       host : "104.156.49.206",
 //       port : 3306,
-//       user : "sobdarth_ourpython",
+//       user : "sobdarth_apk-news",
 //       password : "@1tanvir.comahmedoke",
 //       database : "sobdarth_python_doc"
 //     },
